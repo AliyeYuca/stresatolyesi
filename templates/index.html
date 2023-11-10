@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="main">
+  <div
+    class="d-flex justify-content-center align-items-center flex-column"
+  >
+    <section id="sorun-iletme">
+      <span class="soru">
+        <h4>Size nasıl yardımcı olabilirim ?</h4>
+      </span>
+      <div class="input-group">
+        <form method = "post">
+        <textarea
+          name="user_message"
+          rows="5"
+          placeholder="Bu hafta yaşadığınız sorunu yazın"
+          cols="50"
+        >{{ request.form['user_message'] }}</textarea>
+        {% for message in get_flashed_messages() %}
+            <div class="alert">{{ message }}</div>
+        {% endfor %}
+        <button
+          type="submit"
+          class="btn btn-lg btn-outline-success"
+          id="buton"
+        >
+          Gönder
+        </button>
+      </form>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
